@@ -130,23 +130,30 @@ export class TiptapEditor implements OnInit, OnDestroy {
   }
 
 
-  /** 
-  * Extrai, limpa os estilos inline do Tiptap e formata o HTML atual do editor. 
-  * 
-  * @returns void, atualizando a propriedade htmlGerado do componente
-  */
+  /**
+   * Extrai, limpa os estilos inline do Tiptap, formata o HTML atual
+   * e realiza a rolagem até a área de exibição do código.
+   * @returns void
+   */
   mostrarHtml() {
     const htmlBruto = this.editor.getHTML()
       .replace(/ style="min-width: \d+px;"/g, '')
       .replace(/<p><\/p>/g, '');
 
     this.htmlGerado = beautify.html(htmlBruto, {
-      indent_size: 4,
+      indent_size: 2,
       indent_char: ' ',
-      max_preserve_newlines: 4,
+      max_preserve_newlines: 2,
       preserve_newlines: true,
       indent_inner_html: true
     });
+
+    setTimeout(() => {
+      const elemento = document.getElementById('secao-html-gerado');
+      if (elemento) {
+        elemento.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 50);
   }
 
 
