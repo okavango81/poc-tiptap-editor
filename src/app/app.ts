@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {TiptapEditor} from './components/tiptap-editor/tiptap-editor';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [TiptapEditor],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
