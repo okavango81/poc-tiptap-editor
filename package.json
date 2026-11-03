@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "ng build --configuration production --base-href /poc-tiptap-editor/",
-    "deploy": "gh-pages -d dist/poc-tiptap-editor/browser"
+    "deploy": "gh-pages -d dist/poc-tiptap-editor/browser",
+    "publish": "git push && npm run deploy"
   },
   "prettier": {
     "overrides": [
