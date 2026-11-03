@@ -1,0 +1,256 @@
+/*=====================================
+    LAYOUT GERAL e CONTAINER DO EDITOR
+====================================*/
+
+.title {
+  max-width: 1200px;
+  margin: 48px auto 24px;
+  font-size: 0.7rem;
+}
+
+.tiptap-editor-container {
+  max-width: 1200px;
+  margin: 24px auto 200px;
+  background: #fff;
+  box-shadow: 0 50px 50px rgba(0, 0, 0, 0.07);
+  border-radius: 6px;
+
+  /*=================================
+      BARRA DE FERRAMENTAS
+    =================================*/
+
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 14px;
+    background: #fff;
+    border: 1px solid #c9d1dc;
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+
+    button {
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      padding: 5px 7px;
+      font-size: 12px;
+      color: #121c2b;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        background-color: #eef3fd;
+        color: #4865d5;
+      }
+
+      &.is-active {
+        background-color: #dce8fd;
+        color: #4865d5;
+      }
+    }
+
+    .font-size-selector {
+      background: #fafafa;
+      border: 1px solid #d3e1f8;
+      border-radius: 4px;
+      padding: 4px 6px;
+      color: #334155;
+      cursor: pointer;
+      margin: 0 10px 0 10px;
+
+      &:hover {
+        background: #eef3fd;
+      }
+
+      option {
+        background: #f8f9fa;
+        font-weight: 500;
+      }
+
+      &.is-active {
+        background-color: #eef3fd;
+        border-color: #4865d5;
+      }
+    }
+
+    .table-group {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      margin-top: 4px;
+      background: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(11px);
+      border: 1px solid rgba(194, 193, 193, 0.4);
+      border-radius: 8px;
+      box-shadow: 15px 15px 20px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      z-index: 10;
+      padding: 14px;
+      min-width: 150px;
+
+      button {
+        padding: 6px 12px;
+        width: 100%;
+        justify-content: flex-start;
+        border-radius: 4px;
+        background: transparent;
+
+        &:hover {
+          background: #eef3fd;
+          color: #000;
+        }
+
+        &.text-danger {
+          color: #dc2626;
+          &:hover {
+            background: rgba(247, 50, 50, 0.14);
+            border: 1px solid rgba(247, 50, 50, 0.14);
+          }
+        }
+      }
+    }
+
+    .espacador {
+      flex-grow: 1;
+    }
+  }
+
+  /*===========================================
+     CONTEÚDO e ELEMENTOS INTERNOS DO EDITOR
+    ===========================================*/
+
+  .editor-content {
+    margin-bottom: 20px;
+    padding: 10px 24px 24px;
+    cursor: text;
+    min-height: 90px;
+    border: 1px solid #c9d1dc;
+    border-radius: 0 0 6px 6px;
+
+    &:is(:focus, :focus-within) {
+      outline: none !important;
+      border-color: #5364ff;
+    }
+
+    ::ng-deep .ProseMirror {
+      outline: none !important;
+      border: none !important;
+      min-height: 90px;
+
+      &:focus {
+        outline: none !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+    }
+
+    ::ng-deep {
+      table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 100%;
+        margin: 12px 0;
+
+        td,
+        th {
+          min-width: 30px;
+          height: 30px;
+          border: 1px solid #94a3b8;
+          padding: 6px 10px;
+          vertical-align: top;
+          position: relative;
+          box-sizing: border-box;
+        }
+
+        th {
+          background-color: #f1f5f9;
+          font-weight: bold;
+        }
+
+        .selectedCell:after {
+          z-index: 2;
+          position: absolute;
+          content: "";
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          background: rgb(244, 246, 249);
+          pointer-events: none;
+        }
+      }
+
+      img {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block;
+      }
+    }
+  }
+}
+
+/*=========================================================
+   ELEMENTOS AUXILIARES DA TOOLBAR (CONTADOR, SEPARADORES)
+==========================================================*/
+
+.contador {
+  font-size: 12px;
+  color: #64748b;
+  padding: 0 6px;
+  white-space: nowrap;
+}
+
+.gerarHtml {
+  white-space: nowrap;
+}
+
+.separador {
+  width: 1px;
+  height: 18px;
+  background: #cbd5e1;
+  margin: 0 4px;
+}
+
+/* ===================================
+   PRÉ-VISUALIZAÇÃO DE HTML E AÇÕES
+=====================================*/
+
+.html-preview {
+  pre {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+}
+
+.btn-html-action {
+  cursor: pointer;
+  background-color: #dae3ec;
+  border: 1px solid #b8c8dd;
+  padding: 6px 12px;
+  border-radius: 3px;
+  color: #464545;
+  gap: 10px;
+  margin: 6px;
+
+  &:hover {
+    background-color: #c3d6eec4;
+  }
+}
