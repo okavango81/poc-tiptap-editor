@@ -261,35 +261,47 @@
         <!-- Espaçador para empurrar os itens para a direita -->
         <div class="espacador"></div>
 
-                <!-- Botão Gerar HTML -->
-                <button (click)="mostrarHtml()" class="gerarHtml" title="Gerar HTML" type="button">
-                    <svg class="lucide lucide-file-code" fill="none" height="18" stroke="currentColor" stroke-linecap="round"
-                         stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                              d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
-                        <path d="M14 2v5a1 1 0 0 0 1 1h5" />
-                        <path d="M10 12.5 8 15l2 2.5" />
-                        <path d="m14 12.5 2 2.5-2 2.5" />
-                    </svg>
-                    Gerar HTML
-                </button>
-        </div>
-        }
-
-        <!-- EDITOR -->
-        <div #element class="editor-content"></div>
-
-        <!-- PAINEL DE CÓDIGO GERADO -->
-        @if (htmlGerado) {
-        <div class="html-preview" id="secao-html-gerado">
-            <div>
-                <strong>HTML Gerado:</strong>
-                <div>
-                    <button (click)="baixarHtml()" class="btn-html-action" type="button">Baixar HTML</button>
-                    <button (click)="htmlGerado = ''" class="btn-html-action" type="button">Fechar</button>
-                </div>
-            </div>
-            <pre><code>{{ htmlGerado }}</code></pre>
-        </div>
-        }
+        <!-- Botão Gerar HTML -->
+        <button (click)="mostrarHtml()" class="gerarHtml" title="Gerar HTML" type="button">
+            <svg class="lucide lucide-file-code" fill="none" height="18" stroke="currentColor" stroke-linecap="round"
+                 stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+                <path
+                      d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z" />
+                <path d="M14 2v5a1 1 0 0 0 1 1h5" />
+                <path d="M10 12.5 8 15l2 2.5" />
+                <path d="m14 12.5 2 2.5-2 2.5" />
+            </svg>
+            Gerar HTML
+        </button>
     </div>
+    }
+
+    <!-- EDITOR -->
+    <div #element class="editor-content"></div>
+
+    <!-- PAINEL DE CÓDIGO GERADO -->
+    @if (htmlGerado) {
+    <div class="html-preview" id="secao-html-gerado">
+        <div class="acoes-html-gerado">
+            <strong>HTML Gerado:</strong>
+            <div>
+                <button (click)="baixarHtml()" class="btn-html-action" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download preview-icon">
+                        <path d="M12 15V3" />
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <path d="m7 10 5 5 5-5" />
+                    </svg>Baixar HTML
+                </button>
+                
+                <button (click)="htmlGerado = ''" class="btn-html-action" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x preview-icon">
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>Fechar
+                </button>
+            </div>
+        </div>
+        <pre><code>{{ htmlGerado }}</code></pre>
+    </div>
+    }
+</div>

@@ -205,13 +205,6 @@
    ELEMENTOS AUXILIARES DA TOOLBAR (CONTADOR, SEPARADORES)
 ==========================================================*/
 
-.contador {
-  font-size: 12px;
-  color: #64748b;
-  padding: 0 6px;
-  white-space: nowrap;
-}
-
 .gerarHtml {
   white-space: nowrap;
 }
@@ -240,17 +233,34 @@
   }
 }
 
-.btn-html-action {
-  cursor: pointer;
-  background-color: #dae3ec;
-  border: 1px solid #b8c8dd;
-  padding: 6px 12px;
-  border-radius: 3px;
-  color: #464545;
-  gap: 10px;
-  margin: 6px;
+.acoes-html-gerado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  padding: 0 12px;
 
-  &:hover {
-    background-color: #c3d6eec4;
+  .btn-html-action {
+    border: 1px solid #dce8fd;
+    background-color: transparent;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #243855;
+    margin-left: 14px;
+
+    &:hover {
+      background-color: #dce8fd;
+      color: #4865d5;
+      cursor: pointer;
+    }
+
+    svg,
+    .preview-icon {
+      vertical-align: middle;
+      margin-right: 2px;
+      width: 18px;
+      height: 18px;
+    }
   }
 }
