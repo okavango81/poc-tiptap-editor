@@ -67,9 +67,6 @@ export class TiptapEditor implements OnInit, OnDestroy {
         FontSize.configure({
           types: ['textStyle'],
         }),
-        CharacterCount.configure({
-          limit: 3000,
-        }),
         Subscript,
         Superscript,
         TextStyle,

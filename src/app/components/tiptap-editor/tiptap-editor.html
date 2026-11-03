@@ -261,11 +261,6 @@
         <!-- Espaçador para empurrar os itens para a direita -->
         <div class="espacador"></div>
 
-        <div class="contador">
-            {{ editor.storage.characterCount.characters() }} / {{ 3000 - editor.storage.characterCount.characters() }}
-            {{ (3000 - editor.storage.characterCount.characters()) <= 1 ? 'restante' : 'restantes' }}
-               </div>
-
                 <!-- Botão Gerar HTML -->
                 <button (click)="mostrarHtml()" class="gerarHtml" title="Gerar HTML" type="button">
                     <svg class="lucide lucide-file-code" fill="none" height="18" stroke="currentColor" stroke-linecap="round"
